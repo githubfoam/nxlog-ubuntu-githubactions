@@ -14,7 +14,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: "os fingerprinting"
-    - name: "os fingerprinting"
       run: |
         hostnamectl status
         lsb_release -a
@@ -53,7 +52,6 @@ jobs:
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v2
-    - name: "os fingerprinting"
     - name: "os fingerprinting"
       run: |
         hostnamectl status
