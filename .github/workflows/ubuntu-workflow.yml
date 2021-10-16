@@ -21,8 +21,7 @@ jobs:
         cat /etc/lsb-release
         cat /etc/issue
         cat /etc/os-release
-        sudo apt-get install -y neofetch && neofetch  
-        neofetch   
+        sudo apt-get install -y neofetch && neofetch   
     - name: "deploy nxlog"
       run: sudo make deploy-nxlog 
                          
@@ -40,8 +39,7 @@ jobs:
         cat /etc/lsb-release
         cat /etc/issue
         cat /etc/os-release
-        sudo apt-get install -y neofetch && neofetch  
-        neofetch   
+        sudo apt-get install -y neofetch && neofetch   
     - name: "deploy nxlog"
       run: sudo make deploy-nxlog    
         
@@ -60,10 +58,11 @@ jobs:
         cat /etc/lsb-release
         cat /etc/issue
         cat /etc/os-release
-        sudo apt-get install -y neofetch && neofetch  
-        neofetch   
+        sudo apt-get install -y neofetch && neofetch    
     - name: "deploy nxlog"
-      run: sudo make deploy-nxlog 
+      # The following packages have unmet dependencies:
+      # mono-xsp4 : Depends: mono-xsp4-base (= 4.2-2.1) but it is not going to be installed
+      # run: sudo make deploy-nxlog 
 
 
 
