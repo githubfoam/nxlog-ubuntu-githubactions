@@ -28,7 +28,7 @@ jobs:
 
   ubuntu-2004-job:
     name: "nxlog ubuntu  20.04"
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
     steps:
     - uses: actions/checkout@v2
     - name: "os fingerprinting"
@@ -43,27 +43,5 @@ jobs:
     - name: "deploy nxlog"
       run: sudo make deploy-nxlog-2004  
         
-
-
-  # ubuntu-1804-job:
-  #   name: "nxlog ubuntu-18.04"
-  #   runs-on: ubuntu-18.04
-  #   steps:
-  #   - uses: actions/checkout@v2
-  #   - name: "os fingerprinting"
-  #     run: |
-  #       hostnamectl status
-  #       lsb_release -a
-  #       lsb_release -d
-  #       cat /etc/lsb-release
-  #       cat /etc/issue
-  #       cat /etc/os-release
-  #       sudo apt-get install -y neofetch && neofetch    
-    # - name: "deploy nxlog"
-      # The following packages have unmet dependencies:
-      # mono-xsp4 : Depends: mono-xsp4-base (= 4.2-2.1) but it is not going to be installed
-      # run: sudo make deploy-nxlog 
-
-
 
 
