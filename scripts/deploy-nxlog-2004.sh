@@ -14,3 +14,4 @@ apt-get update -qq
 # Download NXLOG
 #https://nxlog.co/products/nxlog-community-edition/download
 wget https://nxlog.co/system/files/products/files/348/nxlog-ce_2.11.2190_ubuntu_focal_amd64.deb
+sudo apt install ./nxlog-ce_2.11.2190_ubuntu_focal_amd64.deb
