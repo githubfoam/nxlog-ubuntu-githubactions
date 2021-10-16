@@ -14,7 +14,18 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: "os fingerprinting"
-      run: hostnamectl status  
+    - name: "os fingerprinting"
+      run: |
+        hostnamectl status
+        lsb_release -a
+        lsb_release -d
+        cat /etc/lsb-release
+        cat /etc/issue
+        cat /etc/os-release
+        sudo apt-get install -y neofetch && neofetch  
+        neofetch   
+    - name: "deploy nxlog"
+      run: sudo make deploy-nxlog 
                          
 
   ubuntu-2004-job:
@@ -30,7 +41,8 @@ jobs:
         cat /etc/lsb-release
         cat /etc/issue
         cat /etc/os-release
-        # sudo apt-get install -y neofetch && neofetch     
+        sudo apt-get install -y neofetch && neofetch  
+        neofetch   
     - name: "deploy nxlog"
       run: sudo make deploy-nxlog    
         
@@ -42,7 +54,18 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: "os fingerprinting"
-      run: hostnamectl status 
+    - name: "os fingerprinting"
+      run: |
+        hostnamectl status
+        lsb_release -a
+        lsb_release -d
+        cat /etc/lsb-release
+        cat /etc/issue
+        cat /etc/os-release
+        sudo apt-get install -y neofetch && neofetch  
+        neofetch   
+    - name: "deploy nxlog"
+      run: sudo make deploy-nxlog 
 
 
 
