@@ -3,7 +3,7 @@ name: "Ubuntu nx log CI workflow"
 
 on:
   push:
-    branches: [ dev ]
+    branches: [ test ]
 
 
 jobs:
