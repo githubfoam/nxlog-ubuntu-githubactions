@@ -1,8 +1,8 @@
 IMAGE := alpine/fio
 APP:="app/deploy-openesb.sh"
 
-deploy-nxlog:
-	bash scripts/deploy-nxlog.sh
+deploy-nxlog-2004:
+	bash scripts/deploy-nxlog-2004.sh
 
 
 
