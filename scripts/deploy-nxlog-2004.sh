@@ -50,8 +50,8 @@ sudo sysv-rc-conf --list nxlog
 # sysv-rc-conf --level (runlevel number ex:1 2 3 4 5 6 )
 
 #create an alias
-alias chkconfig=sysv-rc-conf
-chkconfig --list
+# alias chkconfig=sysv-rc-conf
+# chkconfig --list
 
 # chkconfig --list #shows SysV services only and does not include native systemd services.
 # chkconfig --list nxlog #verify that the run level configured correctly for the nxlog service
