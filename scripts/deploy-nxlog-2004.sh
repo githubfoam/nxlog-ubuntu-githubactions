@@ -35,6 +35,10 @@ ls -lai /etc/rc*.d/
 #where "+" means service is in running state "-" is in stopped.
 service --status-all
 
+# echo deb http://download.virtualbox.org/virtualbox/debian xenial contrib | sudo tee -a /etc/apt/sources.list.d/virtualbox.list
+echo "deb http://archive.ubuntu.com/ubuntu/ trusty main universe restricted multiverse" | sudo tee -a /etc/apt/sources.list
+sudo apt-get update
+
 # Install package
 sudo apt-get install sysv-rc-conf -y
 # show all services in all the runlevels
