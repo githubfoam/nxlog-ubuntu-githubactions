@@ -46,17 +46,6 @@ sudo apt-get install sysv-rc-conf -y
 sudo sysv-rc-conf --list
 sudo sysv-rc-conf --list nxlog #0:off	1:off	2:on	3:on	4:on	5:on	6:off
 
-# choose which service should be active in boot time
-# sysv-rc-conf [--level <runlevels>] <service name> <on|off>
-# sysv-rc-conf --level (runlevel number ex:1 2 3 4 5 6 )
-
-#create an alias
-# alias chkconfig=sysv-rc-conf
-# chkconfig --list
-
-# chkconfig --list #shows SysV services only and does not include native systemd services.
-# chkconfig --list nxlog #verify that the run level configured correctly for the nxlog service
-# chkconfig nxlog on #configure it to start Automatically while system start-up
 
 sudo systemctl status nxlog
 sudo systemctl status nxlog.service -l --no-pager
