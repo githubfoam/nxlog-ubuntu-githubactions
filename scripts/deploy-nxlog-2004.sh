@@ -36,7 +36,7 @@ ls -lai /etc/rc*.d/
 service --status-all
 
 # Install package
-sudo apt install sysv-rc-conf
+sudo apt-get install sysv-rc-conf -y
 # show all services in all the runlevels
 sudo sysv-rc-conf --list
 sudo sysv-rc-conf --list nxlog 
