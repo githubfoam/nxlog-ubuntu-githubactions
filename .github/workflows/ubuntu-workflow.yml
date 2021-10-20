@@ -45,6 +45,22 @@ jobs:
         sudo apt-get install -y neofetch && neofetch   
     - name: "deploy nxlog"
       run: sudo make deploy-nxlog-2004  
-        
+
+  ubuntu-1804-job:
+    name: "nxlog ubuntu  18.04"
+    runs-on: ubuntu-18.04
+    steps:
+    - uses: actions/checkout@v2
+    - name: "os fingerprinting"
+      run: |
+        hostnamectl status
+        lsb_release -a
+        lsb_release -d
+        cat /etc/lsb-release
+        cat /etc/issue
+        cat /etc/os-release
+        sudo apt-get install -y neofetch && neofetch   
+    - name: "deploy nxlog"
+      run: sudo make deploy-nxlog-1804         
 
 
