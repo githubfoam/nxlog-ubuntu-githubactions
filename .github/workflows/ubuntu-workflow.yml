@@ -58,6 +58,6 @@ jobs:
         cat /etc/os-release
         sudo apt-get install -y neofetch && neofetch   
     - name: "deploy nxlog"
-      run: sudo make deploy-nxlog-2004         
+      run: sudo make deploy-nxlog-1804         
 
 
