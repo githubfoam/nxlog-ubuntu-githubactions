@@ -58,9 +58,7 @@ jobs:
         cat /etc/os-release
         sudo apt-get install -y neofetch && neofetch   
     - name: "deploy nxlog"
-      run: sudo make deploy-nxlog-1804  
-    - name: "run cve nxlog"
-      run: sudo make deploy-nxlog-1804-cve       
+      run: sudo make deploy-nxlog-1804       
 
   ubuntu-1804-cve-job:
     name: "nxlog cve PoC ubuntu  18.04"
