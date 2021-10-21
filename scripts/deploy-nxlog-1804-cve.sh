@@ -28,9 +28,9 @@ cat /etc/nxlog/nxlog.conf | grep "514"
 
 sudo systemctl status nxlog
 
-# lsof -i :514
+lsof -i :514
 
-# gitclone https://github.com/GuillaumePetit84/CVE-2020-35488.git
-# ls -lai
+git clone https://github.com/GuillaumePetit84/CVE-2020-35488.git
+ls -lai
 
 # ./PoC.py -ip 192.168.1.55 -os 3
