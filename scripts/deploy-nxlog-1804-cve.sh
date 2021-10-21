@@ -24,7 +24,7 @@ echo "# run cve test                               #"
 echo "##############################################"
 
 cat /etc/nxlog/nxlog.conf 
-cat /etc/nxlog/nxlog.conf | grep "Port        514"
+cat /etc/nxlog/nxlog.conf | grep "514"
 
 sudo systemctl status nxlog
 
