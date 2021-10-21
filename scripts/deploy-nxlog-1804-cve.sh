@@ -35,3 +35,4 @@ ls -lai
 cd CVE-*
 ls -lai
 # sudo ./PoC.py -ip 192.168.1.55 -os 3
+python PoC.py -ip 192.168.1.55 -os 3
