@@ -13,7 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     env:
       distribution: "archlinux" #https://hub.docker.com/_/archlinux
-      version: "base"
+      version: "latest"
       name: "arch-ansible"
     steps:
     - uses: actions/checkout@v2
@@ -29,7 +29,7 @@ jobs:
     - name: "docker pull archlinux"
       run: sudo docker pull ${distribution}:${version}  && sudo docker image ls  
     - name: "docker build archlinux"
-      run: sudo docker build -t jenkinsci:latest . --file dockerfiles/Dockerfile.archlinux && sudo docker image ls              
+      run: sudo docker build -t archlinux:base . --file dockerfiles/Dockerfile.archlinux && sudo docker image ls              
     # - name: "deploy nxlog"
     #   run: sudo make deploy-nxlog-2004 
                          
