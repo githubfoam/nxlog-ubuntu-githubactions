@@ -1,6 +1,7 @@
 FROM archlinux:base
 
 RUN pacman -Syu --noconfirm
-RUN pacman -S ansible python2-passlib python2-six --noconfirm
+# RUN pacman -S ansible python2-passlib python2-six --noconfirm 
+RUN pacman -S ansible --noconfirm && ansible --version
 
 #WORKDIR /home/ansible
