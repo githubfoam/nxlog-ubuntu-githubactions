@@ -9,10 +9,12 @@ on:
 jobs:
 
   ubuntu-latest-job:
-    name: "nxlog ubuntu-latest ubuntu 20.04"
+    name: "docker archlinux ubuntu 20.04"
     runs-on: ubuntu-latest
     env:
       distribution: "archlinux/base"
+      version: "latest"
+      name: "arch-ansible"
     steps:
     - uses: actions/checkout@v2
     - name: "os fingerprinting"
@@ -24,8 +26,10 @@ jobs:
         cat /etc/issue
         cat /etc/os-release
         sudo apt-get install -y neofetch && neofetch   
-    - name: "docker archlinux"
-      run: echo $distribution        
+    - name: "docker pull archlinux"
+      run: sudo docker pull ${distribution}:${version}  && sudo docker image ls  
+    - name: "docker build archlinux"
+      run: sudo docker build -t jenkinsci:latest . --file dockerfiles/Dockerfile.archlinux && sudo docker image ls              
     # - name: "deploy nxlog"
     #   run: sudo make deploy-nxlog-2004 
                          
