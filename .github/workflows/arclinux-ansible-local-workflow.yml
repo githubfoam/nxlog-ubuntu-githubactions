@@ -32,9 +32,13 @@ jobs:
       run: |
         # destroyed afterwards (use --rm )
         # all subsequent Dockerfile commands generate new images and the cache is not used
-        sudo docker build --no-cache --rm  -t archlinux:base . --file dockerfiles/Dockerfile.archlinux 
-        sudo docker image ls
+        sudo docker build --no-cache --rm  -t archlinux:ansible . --file dockerfiles/Dockerfile.archlinux 
+        docker image ls
+        docker image history archlinux:ansible
         docker system df -v               
+        docker image inspect archlinux:ansible
+    - name: "run docker ansible local playbook archlinux"
+      run: sudo docker run -e ANSIBLE_FORCE_COLOR=1 --privileged --volume="${PWD}":/home/ansible:ro ${name} ansible-playbook -vvv /home/ansible/playbook.yml --syntax-check -i ./localhost'          
     # - name: "deploy nxlog"
     #   run: sudo make deploy-nxlog-2004 
                          
