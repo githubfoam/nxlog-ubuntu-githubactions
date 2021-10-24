@@ -37,7 +37,9 @@ jobs:
         docker image history archlinux:ansible
         docker system df -v               
         docker image inspect archlinux:ansible
-        sudo docker run -e ANSIBLE_FORCE_COLOR=1 --privileged --volume="${PWD}":/home/ansible:ro ${name} ansible-playbook -vvv /home/ansible/playbook.yml --syntax-check -i ./localhost
+        # sudo docker run -e ANSIBLE_FORCE_COLOR=1 --privileged --volume="${PWD}":/home/ansible:ro ${name} ansible-playbook -vvv /home/ansible/playbook.yml --syntax-check -i ./localhost # no need localhost inventory
+        sudo docker run -e ANSIBLE_FORCE_COLOR=1 --privileged --volume="${PWD}":/home/ansible:ro ${name} ansible-playbook -vvv /home/ansible/playbook.yml --syntax-check
+        sudo docker run -e ANSIBLE_FORCE_COLOR=1 --privileged --volume="${PWD}":/home/ansible:ro ${name} ansible-playbook -vvv /home/ansible/playbook.yml --check #dry-run
     # - name: "run docker ansible local playbook archlinux"
     #   run: sudo docker run -e ANSIBLE_FORCE_COLOR=1 --privileged --volume="${PWD}":/home/ansible:ro ${name} ansible-playbook -vvv /home/ansible/playbook.yml --syntax-check -i ./localhost         
     # - name: "deploy nxlog"
