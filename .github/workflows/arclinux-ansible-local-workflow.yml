@@ -14,7 +14,7 @@ jobs:
     env:
       distribution: "archlinux" #https://hub.docker.com/_/archlinux
       version: "latest"
-      name: "arch-ansible"
+      name: "archlinux:ansible"
     steps:
     - uses: actions/checkout@v2
     - name: "os fingerprinting"
