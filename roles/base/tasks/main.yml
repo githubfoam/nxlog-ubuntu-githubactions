@@ -1,5 +1,78 @@
 ---
-- name: Synchronising package databases
+- name: "Synchronising package databases"
   pacman:
     update_cache: yes
     upgrade: yes
+
+- name: "Install rankmirrors"
+  pacman:
+    name: pacman-contrib
+
+- name: "Backup pacman's mirrorlist"
+  copy:
+    src: /etc/pacman.d/mirrorlist
+    dest: /etc/pacman.d/mirrorlist.backup
+
+- name: "Get latest mirrorlist FR/DE/GB"
+  get_url:
+    url: https://www.archlinux.org/mirrorlist/?country=FR&country=DE&country=GB&protocol=http&protocol=https&ip_version=4
+    dest: /etc/pacman.d/mirrorlist.ansible
+    force: yes
+
+- name: "Uncomment mirrors"
+  replace:
+    path: /etc/pacman.d/mirrorlist.ansible
+    regexp: ^#Server
+    replace: Server
+
+- name: "Include multilib pacman repository"
+  replace:
+    path: /etc/pacman.conf
+    regexp: '#\[multilib\]\n#(Include.+)'
+    replace: '[multilib]\n\1'
+    backup: yes
+
+- name: "Rank pacman's mirrors"
+  shell: /usr/bin/rankmirrors /etc/pacman.d/mirrorlist.ansible > /etc/pacman.d/mirrorlist
+
+- name: pacman -Syu
+  pacman:
+    update_cache: yes
+    upgrade: yes
+
+- name: "Install package foo from repo and bar from file"
+  pacman:
+    name: htop
+    state: present
+    update_cache: yes
+
+- name: "Install packages foo and bar"
+  pacman:
+    name:
+      - htop
+      - curl
+    state: present  
+    update_cache: yes 
+
+- name: "Upgrade package foo"
+  pacman:
+    name: htop
+    state: latest
+    update_cache: yes  
+
+    
+
+# - name: "Install zsh, man, htop, curl, tmux, vim, which, openssh and tar"
+#   pacman:
+#       name:
+#       - base
+#       - linux
+#       - htop
+#       - curl
+#       - vim
+#       - sudo
+#       - openssh
+#       - openvpn
+#       - networkmanager
+#       - networkmanager-openvpn
+#       state: present
