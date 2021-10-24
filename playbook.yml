@@ -1,0 +1,34 @@
+---
+- hosts: localhost
+  become: yes
+  roles:
+    - { role: base, tags: ['base'] }
+    - { role: bootstrap, tags: ['bootstrap'] }
+    - { role: yay, tags: ['yay'] }
+    - { role: useradd, tags: ['useradd'] }
+    - { role: dotfiles, tags: ['dotfiles'] }
+    - { role: clitools, tags: ['clitools'] } #Deps: dotfiles, useradd
+    - { role: dtrx, tags: ['dtrx']} #Deps: yay
+    - { role: ohmyzsh, tags: ['ohmyzsh'] } #Deps: dotfiles, useradd
+    - { role: python, tags: ['python'] }
+    - { role: vim, tags: ['vim'] } #Deps: dotfiles, useradd, python
+    - { role: windowsmanager, tags: ['windowsmanager'] } #Deps: dotfiles, useradd, yay
+    - { role: apps, tags: ['apps'] }
+    - { role: communication, tags: ['communication'] } #Deps: yay
+    - { role: docker, tags: ['docker'] } #Deps: yay
+    - { role: games, tags: ['games'] }
+    - { role: media, tags: ['media'] }
+    - { role: vscode, tags: ['vscode'] } #Deps: dotfiles
+  vars_prompt:
+    - name: user_name
+      prompt: "Enter desired user name"
+      private: no
+    - name: hostname 
+      prompt: "Enter desired hostname"
+      private: no
+    - name: user_password
+      prompt: "Enter desired user password"
+      private: yes
+      confirm: yes
+      salt_size: 7
+      encrypt: "sha512_crypt
