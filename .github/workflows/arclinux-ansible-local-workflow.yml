@@ -12,8 +12,8 @@ jobs:
     name: "docker archlinux ubuntu 20.04"
     runs-on: ubuntu-latest
     env:
-      distribution: "archlinux/base"
-      version: "latest"
+      distribution: "archlinux" #https://hub.docker.com/_/archlinux
+      version: "base"
       name: "arch-ansible"
     steps:
     - uses: actions/checkout@v2
